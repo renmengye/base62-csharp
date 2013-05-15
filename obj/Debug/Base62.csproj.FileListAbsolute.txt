@@ -1,5 +1,0 @@
-D:\Projects\Base62\bin\Debug\Base62.dll
-D:\Projects\Base62\bin\Debug\Base62.pdb
-D:\Projects\Base62\obj\Debug\Base62.csprojResolveAssemblyReference.cache
-D:\Projects\Base62\obj\Debug\Base62.dll
-D:\Projects\Base62\obj\Debug\Base62.pdb
