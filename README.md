@@ -1,7 +1,11 @@
 base62-csharp
 =============
 
-Base62 Encoding C# implementation
+Base62 Encoding C# implementation.
+
+Encodes byte array to base62 string.
+
+Decodes base62 string to byte array.
 
 Example
 =============
