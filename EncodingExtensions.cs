@@ -79,7 +79,7 @@ namespace Base62
                             throw new FormatException("Base62 string corrupted!");
                         }
                     }
-                    stream.Write(new byte[] { (byte)(index << (8 - mod)) }, 0, mod);
+                    stream.Write(new byte[] { (byte)(index << mod) }, 0, 8 - mod);
                 }
                 else
                 {
