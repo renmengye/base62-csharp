@@ -9,7 +9,7 @@ namespace Base62
         private static string Base62CodingSpace = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
         /// <summary>
-        /// Convert a byte array to base62
+        /// Convert a byte array
         /// </summary>
         /// <param name="original">Byte array</param>
         /// <returns>Base62 string</returns>
@@ -42,7 +42,7 @@ namespace Base62
                 else
                 {
                     // Padding 0s to make the last bits to 6 bit
-                    sb.Append(Base62CodingSpace[(int)(read[0] >> (int)(8 - (stream.Length % 6)))]);
+                    sb.Append(Base62CodingSpace[(int)(read[0] >> (int)(8 - length))]);
                     break;
                 }
             }
@@ -72,25 +72,18 @@ namespace Base62
                 {
                     // Check if the ending is good
                     int mod = (int)(stream.Position % 8);
-                    for (int k = 7; k >= mod; k--)
-                    {
-                        if ((index & (0x1 << k)) != 0)
-                        {
-                            throw new FormatException("Base62 string corrupted!");
-                        }
-                    }
-                    stream.Write(new byte[] { (byte)(index << mod) }, 0, 8 - mod);
+                    stream.Write(new byte[] { (byte)(index << (mod)) }, 0, 8 - mod);
                 }
                 else
                 {
                     // If 60 or 61 then only write 5 bits to the stream, otherwise 6 bits.
                     if (index == 60)
                     {
-                        stream.Write(new byte[] { 0xf8 }, 0, 5);
+                        stream.Write(new byte[] { 0xf0 }, 0, 5);
                     }
                     else if (index == 61)
                     {
-                        stream.Write(new byte[] { 0xfc }, 0, 5);
+                        stream.Write(new byte[] { 0xf8 }, 0, 5);
                     }
                     else
                     {
