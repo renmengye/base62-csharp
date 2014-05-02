@@ -72,7 +72,10 @@ namespace Base62
                 {
                     // Check if the ending is good
                     int mod = (int)(stream.Position % 8);
-                    stream.Write(new byte[] { (byte)(index << (mod)) }, 0, 8 - mod);
+                    if (mod > 0)
+                    {
+                        stream.Write(new byte[] { (byte)(index << (mod)) }, 0, 8 - mod);
+                    }
                 }
                 else
                 {
