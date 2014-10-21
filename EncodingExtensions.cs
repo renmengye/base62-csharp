@@ -39,7 +39,11 @@ namespace Base62
                         sb.Append(Base62CodingSpace[(int)(read[0] >> 2)]);
                     }
                 }
-                else
+                //else if (length == 0)                           // Reached the end completely
+                //{
+                //    break;
+                //}
+                else                                            // Reached the end with some bits left
                 {
                     // Padding 0s to make the last bits to 6 bit
                     sb.Append(Base62CodingSpace[(int)(read[0] >> (int)(8 - length))]);
