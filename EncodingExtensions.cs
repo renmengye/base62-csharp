@@ -76,10 +76,13 @@ namespace Base62
                 {
                     // Check if the ending is good
                     int mod = (int)(stream.Position % 8);
-                    if (mod > 0)
-                    {
-                        stream.Write(new byte[] { (byte)(index << (mod)) }, 0, 8 - mod);
-                    }
+                    if (mod == 0)
+                        throw new InvalidDataException("an extra character was found");
+
+                    if ((index >> (8 - mod)) > 0)
+                        throw new InvalidDataException("invalid ending character was found");
+
+                    stream.Write(new byte[] { (byte)(index << mod) }, 0, 8 - mod);
                 }
                 else
                 {
