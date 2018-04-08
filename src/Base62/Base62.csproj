@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Base62 Encoding C# implementation</Description>
+    <TargetFrameworks>net452;net462;netstandard1.5;netstandard2.0</TargetFrameworks>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <Version>1.0.0</Version>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageTags>base62,conversion</PackageTags>
+    <PackOnBuild>true</PackOnBuild>
+    <Authors>Mengye Ren,Chino Chang</Authors>
+    <PackageId>base62-csharp</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PackageProjectUrl>https://github.com/renmengye/base62-csharp</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/renmengye/base62-csharp/blob/master/LICENSE</PackageLicenseUrl>
+    <Title>Base62</Title>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net462' or '$(TargetFramework)' == 'net451'">
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+</Project>
