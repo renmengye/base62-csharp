@@ -12,6 +12,7 @@
     <PackageId>base62-csharp</PackageId>
     <PackageVersion>1.0.0</PackageVersion>
     <PackageProjectUrl>https://github.com/renmengye/base62-csharp</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/renmengye/base62-csharp/blob/master/LICENSE</PackageLicenseUrl>
     <Title>Base62</Title>
   </PropertyGroup>
 
